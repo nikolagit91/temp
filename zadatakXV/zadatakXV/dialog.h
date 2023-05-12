@@ -13,12 +13,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <cmath>
-
 QT_CHARTS_USE_NAMESPACE
+
+
+
 QT_BEGIN_NAMESPACE
-
-
-
 namespace Ui { class Dialog; }
 QT_END_NAMESPACE
 
@@ -31,9 +30,10 @@ public:
     ~Dialog();
 
 private slots:
+    void on_pushButton_clicked();
     void on_pushButton_2_clicked();
     void ispis();
-    void on_pushButton_clicked();
+
 
 private:
     Ui::Dialog *ui;

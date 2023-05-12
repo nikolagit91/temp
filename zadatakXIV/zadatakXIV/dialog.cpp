@@ -8,7 +8,6 @@ float svetlo=0;
 int adc1=0;
 int r6=0;
 
-
 void read_sensors(){
     const char PCF8591 = 0x48;
     int fd;
@@ -17,9 +16,13 @@ void read_sensors(){
     fd = wiringPiI2CSetup(PCF8591);
 
     napon= wiringPiI2CReadReg8(fd, PCF8591 + 3);
+    napon= wiringPiI2CReadReg8(fd, PCF8591 + 3);
+    adc1= wiringPiI2CReadReg8(fd, PCF8591 + 1);
     adc1= wiringPiI2CReadReg8(fd, PCF8591 + 1);
     svetlo=wiringPiI2CReadReg8(fd, PCF8591 + 0);
+    svetlo=wiringPiI2CReadReg8(fd, PCF8591 + 0);
 }
+
 
 
 Dialog::Dialog(QWidget *parent)
@@ -59,7 +62,7 @@ void Dialog::update_parametara()
     temp=temp-273.15; // U celzijuse
 
     //pretvaranje svetlosti u procente
-    svetlo=((255-svetlo)/(255-50))*100;
+    svetlo=(svetlo/255)*100;
 
     //ispis na ekran
     ui->dial->setValue(napon);

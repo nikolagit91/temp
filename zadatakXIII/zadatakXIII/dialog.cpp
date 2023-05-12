@@ -37,7 +37,6 @@ long citaj_temp() {
         sscanf(tmp1, "t=%s", tmp2);
         value = atoi(tmp2);
 
-
         close(fd);
 
 return value;
@@ -55,9 +54,8 @@ Dialog::Dialog(QWidget *parent)
     connect (timer, SIGNAL(timeout()), this,SLOT(ispis_broja()));
     timer->setInterval(1000);
     timer->start();
-
-
 }
+
 
 
 Dialog::~Dialog()

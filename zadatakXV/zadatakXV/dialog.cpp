@@ -6,6 +6,8 @@ int k;
 float napon=0;
 
 
+//sudo apt install libqt5charts5-dev
+
 void read_sensors(){
     const char PCF8591 = 0x48;
     int fd;
@@ -72,13 +74,19 @@ Dialog::~Dialog()
 
 
 
+void Dialog::on_pushButton_clicked()
+{
+    timer->stop();
+    series->clear();
+    i=1;
+}
+
 
 void Dialog::on_pushButton_2_clicked()
 {
     timer->start(1000);
     series->append(0,0);
 }
-
 
 
 
@@ -98,10 +106,4 @@ void Dialog::ispis()
 
 
 
-void Dialog::on_pushButton_clicked()
-{
-    timer->stop();
-    series->clear();
-    i=1;
-}
 
